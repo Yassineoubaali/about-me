@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome (Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -32,7 +32,25 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: var(--font-family) !important;
+        }
+
+        /* إصلاح الخط: تطبيقه على النصوص فقط دون تدمير خط الأيقونات Font Awesome */
+        body, html, button, input, select, textarea, span, p, h1, h2, h3, h4, h5, h6, a {
+            font-family: var(--font-family);
+        }
+
+        /* حماية أيقونات Font Awesome لكي تظهر دائماً وتختفي المربعات الفارغة */
+        .fa, .fas, .fa-solid {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            display: inline-block;
+            font-style: normal;
+        }
+        .fab, .fa-brands {
+            font-family: "Font Awesome 6 Brands" !important;
+            font-weight: 400 !important;
+            display: inline-block;
+            font-style: normal;
         }
 
         html {
@@ -57,7 +75,14 @@
             padding: 0 28px;
         }
 
-        /* ------------------ FLOATING NAVBAR & FIXED SELECT ------------------ */
+        /* منع انقلاب أرقام الهواتف والسنوات في النمط العربي */
+        .ltr-fixed {
+            direction: ltr !important;
+            display: inline-block;
+            unicode-bidi: isolate;
+        }
+
+        /* ------------------ FLOATING NAVBAR ------------------ */
         .nav-wrapper {
             position: fixed;
             top: 24px;
@@ -109,7 +134,7 @@
             gap: 16px;
         }
 
-        /* إصلاح القائمة المنسدلة بحيث تكون مقروءة وواضحة دائماً في الويندوز وجميع الأجهزة */
+        /* قائمة اللغات المنسدلة */
         .lang-select-pill {
             background-color: #141924 !important;
             color: #ffffff !important;
@@ -136,10 +161,10 @@
             padding: 10px 22px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: var(--transition-smooth);
         }
 
@@ -152,6 +177,7 @@
         .hero {
             padding: 180px 0 80px;
             position: relative;
+            text-align: center;
         }
 
         .hero::before {
@@ -193,7 +219,7 @@
         .hero-headline {
             font-size: clamp(2.6rem, 6vw, 4.8rem);
             font-weight: 800;
-            line-height: 1.18;
+            line-height: 1.2;
             margin-bottom: 25px;
         }
 
@@ -204,17 +230,18 @@
         }
 
         .hero-lead {
-            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
             color: var(--text-muted);
             max-width: 820px;
             line-height: 1.7;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
             font-weight: 300;
         }
 
         .hero-cta-group {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 18px;
             flex-wrap: wrap;
         }
@@ -228,7 +255,7 @@
             font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transition: var(--transition-smooth);
         }
 
@@ -246,7 +273,7 @@
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transition: var(--transition-smooth);
         }
 
@@ -280,12 +307,15 @@
             letter-spacing: 1.5px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
         }
 
-        .marquee-item i {
-            color: var(--accent);
-            font-size: 0.8rem;
+        .ticker-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: inline-block;
         }
 
         @keyframes marquee {
@@ -293,9 +323,10 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ------------------ BENTO CAPABILITIES ------------------ */
+        /* ------------------ BENTO CAPABILITIES (FIXED & ALIGNED) ------------------ */
         .section-header {
             margin-bottom: 50px;
+            text-align: start;
         }
 
         .section-tag {
@@ -331,6 +362,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: start; /* محاذاة موحدة لجميع البطاقات دون استثناء */
         }
 
         .bento-card:hover {
@@ -348,6 +380,7 @@
             color: var(--accent);
             margin-bottom: 15px;
             letter-spacing: 1px;
+            display: block;
         }
 
         .bento-card h3 {
@@ -365,16 +398,16 @@
         }
 
         .bento-icon-lg {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            background: rgba(245, 158, 11, 0.1);
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background: rgba(245, 158, 11, 0.12);
             color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         /* ------------------ LICENSES SHOWCASE ------------------ */
@@ -429,9 +462,10 @@
         .milestone-row {
             display: grid;
             grid-template-columns: 0.6fr 1.5fr 0.4fr;
-            padding: 40px 0;
+            padding: 36px 0;
             border-bottom: 1px solid var(--border-subtle);
             align-items: center;
+            text-align: start;
             transition: var(--transition-smooth);
         }
 
@@ -500,7 +534,7 @@
             flex-wrap: wrap;
         }
 
-        /* ------------------ FOOTER (FIXED & POLISHED) ------------------ */
+        /* ------------------ FOOTER ------------------ */
         footer {
             border-top: 1px solid var(--border-subtle);
             padding: 70px 0 40px;
@@ -531,7 +565,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             font-size: 1.05rem;
             color: var(--text-main);
             font-weight: 600;
@@ -683,7 +717,7 @@
                 </select>
 
                 <a href="https://wa.me/212659876230" target="_blank" class="btn-hire">
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem; color: #25d366;"></i>
                     <span data-i18n="nav_cta">حجز سائق / توظيف</span>
                 </a>
             </div>
@@ -713,8 +747,8 @@
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <a href="tel:+212659876230" class="btn-outline-studio">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+212 659-8762-30</span>
+                    <i class="fa-solid fa-phone" style="color: var(--accent);"></i>
+                    <span class="ltr-fixed">+212 659-8762-30</span>
                 </a>
             </div>
         </div>
@@ -723,17 +757,17 @@
     <!-- Marquee Ticker -->
     <div class="marquee-section">
         <div class="marquee-track">
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> 8x4 Heavy-Duty Haulage</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Category EC Articulated Certified</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Zero-Accident Safety Record</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Warehouse Dispatch & Logistics</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Cross-Border & Long Distance Ready</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Preventative Mechanical Maintenance</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> 8x4 Heavy-Duty Haulage</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Category EC Articulated Certified</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Zero-Accident Safety Record</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Warehouse Dispatch & Logistics</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Cross-Border & Long Distance Ready</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Preventative Mechanical Maintenance</div>
             <!-- Seamless clone -->
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> 8x4 Heavy-Duty Haulage</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Category EC Articulated Certified</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Zero-Accident Safety Record</div>
-            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Warehouse Dispatch & Logistics</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> 8x4 Heavy-Duty Haulage</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Category EC Articulated Certified</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Zero-Accident Safety Record</div>
+            <div class="marquee-item"><span class="ticker-dot"></span> Warehouse Dispatch & Logistics</div>
         </div>
     </div>
 
@@ -746,6 +780,7 @@
         </div>
 
         <div class="bento-grid">
+            <!-- Box 1 -->
             <div class="bento-card col-8">
                 <div>
                     <span class="card-num">01 / FLEET HEAVY HAULAGE</span>
@@ -755,6 +790,7 @@
                 </div>
             </div>
 
+            <!-- Box 2 -->
             <div class="bento-card col-4">
                 <div>
                     <span class="card-num">02 / LOGISTICS COMMAND</span>
@@ -764,6 +800,7 @@
                 </div>
             </div>
 
+            <!-- Box 3 -->
             <div class="bento-card col-4">
                 <div>
                     <span class="card-num">03 / COMMERCIAL RAPID</span>
@@ -773,6 +810,7 @@
                 </div>
             </div>
 
+            <!-- Box 4 -->
             <div class="bento-card col-8">
                 <div>
                     <span class="card-num">04 / RIGOROUS MAINTENANCE</span>
@@ -823,7 +861,7 @@
 
         <div class="milestones-wrapper">
             <div class="milestone-row">
-                <div class="milestone-year">2024 — NOW</div>
+                <div class="milestone-year"><span class="ltr-fixed">2024 — NOW</span></div>
                 <div class="milestone-content">
                     <h4 data-i18n="job1_title">سائق شاحنات ثقيلة 8x4 (سائق مهني مستقل)</h4>
                     <p data-i18n="job1_desc">نقل الحمولات الاستثنائية والثقيلة عبر خطوط لوجستية معقدة، فحص ميكانيكي دقيق للمركبة، والالتزام بمعايير السلامة.</p>
@@ -832,7 +870,7 @@
             </div>
 
             <div class="milestone-row">
-                <div class="milestone-year">2 YEARS</div>
+                <div class="milestone-year"><span class="ltr-fixed">2 YEARS</span></div>
                 <div class="milestone-content">
                     <h4 data-i18n="job2_title">سائق مركبات تجارية (Pickup) — قطاع تجاري خاص</h4>
                     <p data-i18n="job2_desc">إدارة وتوزيع شحنات البضائع اليومية، ربط الحمولة بإحكام، وتحقيق نسبة التزام 100% في مواعيد التسليم.</p>
@@ -841,7 +879,7 @@
             </div>
 
             <div class="milestone-row">
-                <div class="milestone-year">1 YEAR</div>
+                <div class="milestone-year"><span class="ltr-fixed">1 YEAR</span></div>
                 <div class="milestone-content">
                     <h4 data-i18n="job3_title">مراقب شحن ومسؤول مستودع (Magasin Pointeur) — INBS</h4>
                     <p data-i18n="job3_desc">مراقبة المخزون، تنظيم حركة دخول وخروج الشاحنات، والتنسيق بين فرق العمليات لرفع سرعة التحميل والتفريغ.</p>
@@ -858,26 +896,25 @@
 
             <div class="cta-btns">
                 <a href="https://wa.me/212659876230" target="_blank" class="btn-primary-studio">
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i>
                     <span data-i18n="btn_wa">تواصل عبر واتساب مباشرة</span>
                 </a>
                 <a href="mailto:yassineoubaa@hotmail.com" class="btn-outline-studio">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>yassineoubaa@hotmail.com</span>
+                    <i class="fa-solid fa-envelope" style="color: var(--accent);"></i>
+                    <span class="ltr-fixed">yassineoubaa@hotmail.com</span>
                 </a>
             </div>
         </div>
 
     </main>
 
-    <!-- Fixed Footer with Embedded SVG Flag & Full i18n -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-watermark">OUBAALI</div>
             <div class="footer-content-box">
                 <div class="footer-location">
                     <span data-i18n="footer_name_loc">ياسين أوباعلي — درعة-تافيلالت، المغرب</span>
-                    <!-- علم المغرب SVG دقيق وعالي الجودة لا يظهر كحروف MA في ويندوز -->
                     <svg class="flag-morocco" width="22" height="15" viewBox="0 0 900 600">
                         <rect width="900" height="600" fill="#c1272d"/>
                         <polygon points="450,195 464.7,240.2 512.2,240.2 473.8,268.1 488.5,313.3 450,285.4 411.5,313.3 426.2,268.1 387.8,240.2 435.3,240.2" fill="none" stroke="#006233" stroke-width="16"/>
