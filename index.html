@@ -1,443 +1,1116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yassine Oubaali - Professional Truck Driver</title>
+    <title>Yassine Oubaali — Heavy Fleet & Commercial Logistics Specialist</title>
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --primary-color: #ffb400; /* Highway Yellow */
-            --bg-color: #121212; /* Asphalt Dark */
-            --card-bg: #1e1e1e;
-            --text-light: #f5f5f5;
-            --text-gray: #b3b3b3;
+            --bg-main: #07090e;
+            --bg-surface: #0e121a;
+            --bg-card: #141924;
+            --accent: #f59e0b; /* Amber Heavy Industrial Gold */
+            --accent-glow: rgba(245, 158, 11, 0.25);
+            --text-main: #f8fafc;
+            --text-muted: #8b9bb4;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(245, 158, 11, 0.5);
+            --font-ar: 'Cairo', sans-serif;
+            --font-lat: 'Outfit', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-light);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-ar);
             overflow-x: hidden;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        body[dir="ltr"] {
+            font-family: var(--font-lat);
         }
 
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 180, 0, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 180, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 180, 0, 0); }
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1)), 
-                        url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .hero h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            margin-top: 10px;
-            animation: fadeInUp 1s ease-out 0.3s backwards;
-        }
-
-        .contact-info {
-            margin-top: 30px;
-            display: flex;
-            gap: 20px;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
-        }
-
-        .contact-info span {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 180, 0, 0.3);
-        }
-
-        /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 0 28px;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            position: relative;
+        /* ------------------ FLOATING NAVBAR ------------------ */
+        .nav-wrapper {
+            position: fixed;
+            top: 24px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            pointer-events: none;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
-            color: var(--text-gray);
-            max-width: 900px;
+        .navbar {
+            pointer-events: auto;
+            max-width: 1100px;
             margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .about-text:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 180, 0, 0.1);
-        }
-
-        /* Licenses Section */
-        .licenses {
+            background: rgba(14, 18, 26, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            padding: 12px 28px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .license-card {
-            background: var(--card-bg);
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            border: 2px dashed var(--primary-color);
-            transition: all 0.4s ease;
-            position: relative;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transition: var(--transition-smooth);
         }
 
-        .license-card:hover {
-            background: var(--primary-color);
-            color: var(--bg-color);
-            animation: pulse 1.5s infinite;
-            border-style: solid;
-        }
-
-        .license-card h3 {
-            font-size: 2rem;
-            font-weight: 800;
-        }
-
-        .license-card p {
-            font-size: 0.8rem;
-            text-transform: uppercase;
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             letter-spacing: 1px;
         }
 
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
+        .brand-badge {
+            background: var(--accent);
+            color: #000;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
-        .timeline::after {
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lang-select-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-select-pill:hover {
+            border-color: var(--accent);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .btn-hire {
+            background: var(--text-main);
+            color: #000;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-hire:hover {
+            background: var(--accent);
+            transform: scale(1.04);
+        }
+
+        /* ------------------ HERO SECTION ------------------ */
+        .hero {
+            padding: 180px 0 80px;
+            position: relative;
+        }
+
+        .hero::before {
             content: '';
             position: absolute;
-            width: 4px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
+            top: 10%;
             left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
         }
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item.left { left: 0; }
-        .timeline-item.right { left: 50%; }
-
-        .timeline-item::after {
-            content: '\f0d1'; /* Truck icon */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            right: -20px;
-            background-color: var(--bg-color);
-            border: 4px solid var(--primary-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
+        .hero-tag {
+            display: inline-flex;
             align-items: center;
-            color: var(--primary-color);
-            font-size: 14px;
+            gap: 10px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 24px;
         }
 
-        .timeline-item.right::after { left: -20px; }
+        .hero-tag .dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+        }
 
-        .timeline-content {
-            padding: 30px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            transition: transform 0.3s;
+        .hero-headline {
+            font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 25px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-headline span.gradient-txt {
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-muted);
+            max-width: 780px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-studio {
+            background: var(--accent);
+            color: #000;
+            padding: 16px 36px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary-studio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px var(--accent-glow);
+        }
+
+        .btn-outline-studio {
+            border: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-outline-studio:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ------------------ MARQUEE TICKER ------------------ */
+        .marquee-section {
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-surface);
+            padding: 20px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 60px 0;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 50px;
+            animation: marquee 28s linear infinite;
+        }
+
+        .marquee-item {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .marquee-item i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ------------------ BENTO CAPABILITIES (STUDIO GRID) ------------------ */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            margin-bottom: 90px;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 28px;
+            padding: 38px;
             position: relative;
             overflow: hidden;
-        }
-        
-        .timeline-content::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--primary-color);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .timeline-content:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        .bento-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        .timeline-content h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
+        .col-8 { grid-column: span 8; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
 
-        .timeline-content h4 {
-            color: var(--text-light);
-            font-weight: 400;
+        .card-num {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--accent);
             margin-bottom: 15px;
-            font-size: 1rem;
+            font-family: var(--font-lat);
         }
 
-        .timeline-content p {
-            color: var(--text-gray);
-            line-height: 1.6;
-            font-size: 0.95rem;
+        .bento-card h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
-        .date {
-            display: inline-block;
-            background: rgba(255, 180, 0, 0.2);
-            color: var(--primary-color);
-            padding: 5px 15px;
+        .bento-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .bento-icon-lg {
+            width: 70px;
+            height: 70px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
         }
 
-        /* Skills Grid */
-        .skills-grid {
+        /* ------------------ LICENSES SHOWCASE ------------------ */
+        .licenses-strip {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
-            margin-top: 40px;
+            margin-bottom: 100px;
         }
 
-        .skill-box {
-            background: var(--card-bg);
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .skill-box i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            transition: transform 0.3s;
-        }
-
-        .skill-box:hover {
-            background: var(--primary-color);
-            color: var(--bg-color);
-        }
-
-        .skill-box:hover i {
-            color: var(--bg-color);
-            transform: translateY(-10px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
+        .license-card {
+            background: linear-gradient(180deg, #18202e 0%, var(--bg-surface) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
             padding: 30px;
-            background: #0a0a0a;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            border-top: 1px solid #333;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
         }
 
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item.right { left: 0; }
-            .timeline-item::after { left: 11px !important; }
-            .contact-info { flex-direction: column; gap: 10px; align-items: center; }
+        .license-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .license-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px var(--accent-glow);
+        }
+
+        .license-code {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: var(--font-lat);
+            margin-bottom: 6px;
+        }
+
+        .license-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .license-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ------------------ EXPERIENCE AS STUDIO MILESTONES ------------------ */
+        .milestones-wrapper {
+            border-top: 1px solid var(--border-subtle);
+            margin-bottom: 100px;
+        }
+
+        .milestone-row {
+            display: grid;
+            grid-template-columns: 0.6fr 1.5fr 0.4fr;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        .milestone-row:hover {
+            background: rgba(255, 255, 255, 0.015);
+            padding-inline-start: 15px;
+        }
+
+        .milestone-year {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: var(--font-lat);
+        }
+
+        .milestone-content h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .milestone-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 680px;
+        }
+
+        .milestone-badge {
+            text-align: end;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ------------------ HIGH-CONVERTING STUDIO CTA ------------------ */
+        .studio-cta {
+            background: linear-gradient(135deg, #1b2435 0%, #0d121b 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 36px;
+            padding: 80px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .studio-cta h2 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .studio-cta p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .cta-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* ------------------ FOOTER ------------------ */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 60px 0 40px;
+        }
+
+        .footer-watermark {
+            font-size: clamp(4rem, 12vw, 11rem);
+            font-weight: 900;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.03);
+            letter-spacing: 6px;
+            user-select: none;
+            margin-bottom: 20px;
+            font-family: var(--font-lat);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* ------------------ STUDIO MODAL (ON ENTRY) ------------------ */
+        .studio-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(25px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.4s ease;
+        }
+
+        .studio-modal-backdrop.hidden {
+            opacity: 0;
+            pointer-events: none;
+            display: none;
+        }
+
+        .studio-modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 32px;
+            padding: 45px 35px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+        }
+
+        .studio-modal-box h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .studio-modal-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .modal-lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .modal-lang-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            padding: 16px;
+            border-radius: 18px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-lang-btn:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.03);
+        }
+
+        /* ------------------ RESPONSIVE BREAKPOINTS ------------------ */
+        @media (max-width: 992px) {
+            .col-8, .col-4, .col-6 {
+                grid-column: span 12;
+            }
+            .milestone-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .milestone-badge {
+                text-align: start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 10px 18px;
+            }
+            .btn-hire span {
+                display: none;
+            }
+            .studio-cta {
+                padding: 50px 24px;
+            }
+            .modal-lang-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>Yassine <span>Oubaali</span></h1>
-        <h2>Professional Heavy-Duty Truck Driver</h2>
-        <div class="contact-info">
-            <span><i class="fa-solid fa-earth-africa"></i> Morocco</span>
-            <span><i class="fa-solid fa-calendar"></i> Born 2001</span>
-            <span><i class="fa-solid fa-truck-fast"></i> Multiple Licenses</span>
-        </div>
-    </header>
-
-    <!-- Professional Summary -->
-    <section class="container" id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-text">
-            <p>"Highly skilled and reliable Professional Driver with extensive experience operating heavy-duty trucks and a diverse range of vehicles. Fully certified with Category A, B, C, and EC licenses. Recognized for a strict commitment to road safety, vehicle maintenance, and timely logistics execution. Seeking to leverage proven driving expertise and technical knowledge to ensure efficient and secure transport operations."</p>
-        </div>
-        
-        <!-- Licenses -->
-        <div class="licenses">
-            <div class="license-card"><h3>A</h3><p>Category</p></div>
-            <div class="license-card"><h3>B</h3><p>Category</p></div>
-            <div class="license-card"><h3>C</h3><p>Category</p></div>
-            <div class="license-card"><h3>EC</h3><p>Category</p></div>
-        </div>
-    </section>
-
-    <!-- Professional Experience Timeline -->
-    <section class="container" id="experience" style="background-color: #0d0d0d; max-width: 100%;">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="timeline">
+    <!-- On-Entry Language Selection Modal -->
+    <div id="entryModal" class="studio-modal-backdrop">
+        <div class="studio-modal-box">
+            <div style="width: 60px; height: 60px; background: rgba(245,158,11,0.15); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem;">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <h2>Select Language / اختر اللغة</h2>
+            <p>Welcome to Yassine Oubaali's Heavy Haulage Showcase</p>
             
-            <!-- Job 1 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span class="date"><i class="fa-regular fa-clock"></i> Duration: 2 Months</span>
-                    <h3>Heavy Duty Truck Driver (8x4)</h3>
-                    <h4><i class="fa-solid fa-building"></i> Private Contractor</h4>
-                    <p>Operated an 8x4 heavy-duty truck to safely transport heavy loads across complex routes, ensuring strict adherence to road safety regulations and load limits while maintaining vehicle compliance through rigorous pre- and post-trip inspections.</p>
+            <div class="modal-lang-grid">
+                <button class="modal-lang-btn" onclick="setLangChoice('ar')">
+                    <span>🇲🇦 العربية</span>
+                </button>
+                <button class="modal-lang-btn" onclick="setLangChoice('en')">
+                    <span>🇬🇧 English</span>
+                </button>
+                <button class="modal-lang-btn" onclick="setLangChoice('es')">
+                    <span>🇪🇸 Español</span>
+                </button>
+                <button class="modal-lang-btn" onclick="setLangChoice('it')">
+                    <span>🇮🇹 Italiano</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Studio Navbar -->
+    <div class="nav-wrapper">
+        <nav class="navbar">
+            <div class="brand-logo">
+                <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
+                <span>OUBAALI</span>
+                <span class="brand-badge">Heavy Fleet</span>
+            </div>
+
+            <div class="nav-actions">
+                <select class="lang-select-pill" id="navLangSelect" onchange="applyTranslation(this.value)">
+                    <option value="ar">العربية (AR)</option>
+                    <option value="en">English (EN)</option>
+                    <option value="es">Español (ES)</option>
+                    <option value="it">Italiano (IT)</option>
+                </select>
+
+                <a href="https://wa.me/212659876230" target="_blank" class="btn-hire">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span data-i18n="nav_cta">حجز سائق / توظيف</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-tag">
+                <span class="dot"></span>
+                <span data-i18n="hero_status">متاح للنقل الثقيل واللوجستيك الدولي والمحلي</span>
+            </div>
+
+            <h1 class="hero-headline">
+                <span data-i18n="hero_h1_part1">قيادة احترافية للأوزان الثقيلة.</span><br>
+                <span class="gradient-txt" data-i18n="hero_h1_part2">دقة مطلقة في الميدان.</span>
+            </h1>
+
+            <p class="hero-lead" data-i18n="hero_desc">
+                أنا ياسين أوباعلي، سائق شاحنات ثقيلة متعددة المحاور (8x4) ومركبات تجارية معتمد برخص (A, B, C, EC). أدمج بين مهارة التحكم والقيادة الآمنة وبين إدارة المستودعات واللوجستيك لضمان وصول الشحنات بأعلى معايير الانضباط والسلامة.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary-studio">
+                    <span data-i18n="btn_work">ابدأ التعاقد الميداني</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <a href="tel:+212659876230" class="btn-outline-studio">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+212 659-8762-30</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Studio Marquee Ticker -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> 8x4 Heavy-Duty Haulage</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Category EC Articulated Certified</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Zero-Accident Safety Record</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Warehouse Dispatch & Logistics</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Cross-Border & Long Distance Ready</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Preventative Mechanical Maintenance</div>
+            <!-- Repeat for seamless loop -->
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> 8x4 Heavy-Duty Haulage</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Category EC Articulated Certified</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Zero-Accident Safety Record</div>
+            <div class="marquee-item"><i class="fa-solid fa-circle"></i> Warehouse Dispatch & Logistics</div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="section-tag" data-i18n="tag_capabilities">القدرات والخدمات</span>
+            <h2 class="section-title" data-i18n="title_capabilities">كفاءة تشغيلية تغطي كافة مراحل النقل</h2>
+        </div>
+
+        <!-- Bento Studio Grid -->
+        <div class="bento-grid">
+            
+            <!-- Box 1 (Large) -->
+            <div class="bento-card col-8">
+                <div>
+                    <span class="card-num">01 / FLEET HEAVY HAULAGE</span>
+                    <div class="bento-icon-lg"><i class="fa-solid fa-truck-moving"></i></div>
+                    <h3 data-i18n="bento1_title">قيادة الشاحنات الثقيلة متعددة المحاور (8x4)</h3>
+                    <p data-i18n="bento1_desc">خبرة في قيادة مركبات الأوزان الضخمة في التضاريس الصعبة والمسالك الوعرة مع الالتزام الصارم بحدود الحمولات وتوزيع الوزن وحماية الشحنة.</p>
+                </div>
+                <div style="margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">Multi-Axle Command</span>
+                    <span style="background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">Rigid Safety Protocols</span>
                 </div>
             </div>
 
-            <!-- Job 2 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <span class="date"><i class="fa-regular fa-clock"></i> Duration: 2 Years</span>
-                    <h3>Commercial Vehicle Driver</h3>
-                    <h4><i class="fa-solid fa-truck-pickup"></i> Private Business (Pickup)</h4>
-                    <p>Managed independent daily transport and delivery operations using a light commercial vehicle. Responsible for efficient route planning, cargo securing, and performing routine vehicle maintenance for optimal performance.</p>
+            <!-- Box 2 -->
+            <div class="bento-card col-4">
+                <div>
+                    <span class="card-num">02 / LOGISTICS COMMAND</span>
+                    <div class="bento-icon-lg"><i class="fa-solid fa-boxes-stacked"></i></div>
+                    <h3 data-i18n="bento2_title">إدارة المستودعات والتوجيه (Pointeur)</h3>
+                    <p data-i18n="bento2_desc">خبرة عام كامل في شركة INBS في ضبط وتوثيق الشحنات الواردة والصادرة بدقة 100% والتنسيق مع أطقم الشحن والتفريغ.</p>
                 </div>
             </div>
 
-            <!-- Job 3 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span class="date"><i class="fa-regular fa-clock"></i> Duration: 1 Year</span>
-                    <h3>Warehouse Dispatch Checker</h3>
-                    <h4><i class="fa-solid fa-warehouse"></i> INBS (Magasin Pointeur)</h4>
-                    <p>Monitored and recorded incoming and outgoing freight, ensuring 100% accuracy in inventory logs. Coordinated closely with drivers and logistics teams to manage loading and unloading operations efficiently.</p>
+            <!-- Box 3 -->
+            <div class="bento-card col-4">
+                <div>
+                    <span class="card-num">03 / COMMERCIAL RAPID</span>
+                    <div class="bento-icon-lg"><i class="fa-solid fa-van-shuttle"></i></div>
+                    <h3 data-i18n="bento3_title">التوزيع التجاري والنقل الخفيف</h3>
+                    <p data-i18n="bento3_desc">سنتان من العمل الميداني في النقل التجاري السريع، تخطيط المسارات بدقة، وضمان التسليم في الوقت المحدد دون تأخير.</p>
+                </div>
+            </div>
+
+            <!-- Box 4 (Large) -->
+            <div class="bento-card col-8">
+                <div>
+                    <span class="card-num">04 / RIGOROUS MAINTENANCE</span>
+                    <div class="bento-icon-lg"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3 data-i18n="bento4_title">الصيانة الوقائية والفحص الميكانيكي المستمر</h3>
+                    <p data-i18n="bento4_desc">تنفيذ بروتوكولات الفحص الشامل قبل وبعد الرحلة (Pre/Post-Trip Inspections) للمحركات، الإطارات، أنظمة الفرامل، ومستوى السوائل، لتفادي أي عطل مفاجئ أثناء نقل الحمولات الحساسة.</p>
                 </div>
             </div>
 
         </div>
-    </section>
 
-    <!-- Core Skills -->
-    <section class="container" id="skills">
-        <h2 class="section-title">Core Competencies</h2>
-        <div class="skills-grid">
-            <div class="skill-box">
-                <i class="fa-solid fa-truck-moving"></i>
-                <h3>Heavy Vehicle Operation</h3>
+        <!-- Licenses Holographic Cards -->
+        <div class="section-header">
+            <span class="section-tag" data-i18n="tag_licenses">الاعتمادات والرخص</span>
+            <h2 class="section-title" data-i18n="title_licenses">رخص قيادة معتمدة ومؤهلة</h2>
+        </div>
+
+        <div class="licenses-strip">
+            <div class="license-card">
+                <div class="license-code">EC</div>
+                <div class="license-title" data-i18n="lic_ec_title">مركبات مفصلية ومقطورات</div>
+                <div class="license-desc" data-i18n="lic_ec_desc">شاحنات النقل الثقيل العابرة للمدن والدول مع المقطورات الضخمة.</div>
             </div>
-            <div class="skill-box">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <h3>Route Planning & Nav</h3>
+
+            <div class="license-card">
+                <div class="license-code">C</div>
+                <div class="license-title" data-i18n="lic_c_title">شاحنات الوزن الثقيل</div>
+                <div class="license-desc" data-i18n="lic_c_desc">الشاحنات الكبيرة المنفردة، شاحنات البناء والأشغال متعددة المحاور.</div>
             </div>
-            <div class="skill-box">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Freight & Road Safety</h3>
+
+            <div class="license-card">
+                <div class="license-code">B</div>
+                <div class="license-title" data-i18n="lic_b_title">المركبات التجارية الخفيفة</div>
+                <div class="license-desc" data-i18n="lic_b_desc">عربات التوزيع، الشاحنات الخفيفة والبيك أب (Pickup).</div>
             </div>
-            <div class="skill-box">
-                <i class="fa-solid fa-wrench"></i>
-                <h3>Vehicle Maintenance</h3>
-            </div>
-            <div class="skill-box">
-                <i class="fa-solid fa-boxes-packing"></i>
-                <h3>Logistics & Dispatch</h3>
+
+            <div class="license-card">
+                <div class="license-code">A</div>
+                <div class="license-title" data-i18n="lic_a_title">دراجات نارية</div>
+                <div class="license-desc" data-i18n="lic_a_desc">تحكم ومرونة عالية في كافة وسائل التنقل الميدانية.</div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
+        <!-- Milestones (Experience) -->
+        <div class="section-header">
+            <span class="section-tag" data-i18n="tag_timeline">المسار الميداني</span>
+            <h2 class="section-title" data-i18n="title_timeline">محطات الخبرة والإنجازات</h2>
+        </div>
+
+        <div class="milestones-wrapper">
+            <div class="milestone-row">
+                <div class="milestone-year">2024 — NOW</div>
+                <div class="milestone-content">
+                    <h4 data-i18n="job1_title">سائق شاحنات ثقيلة 8x4 (سائق مهني مستقل)</h4>
+                    <p data-i18n="job1_desc">نقل الحمولات الاستثنائية والثقيلة عبر خطوط لوجستية معقدة، فحص ميكانيكي دقيق للمركبة، والالتزام بمعايير السلامة.</p>
+                </div>
+                <div class="milestone-badge">Heavy Transport</div>
+            </div>
+
+            <div class="milestone-row">
+                <div class="milestone-year">2 YEARS</div>
+                <div class="milestone-content">
+                    <h4 data-i18n="job2_title">سائق مركبات تجارية (Pickup) — قطاع تجاري خاص</h4>
+                    <p data-i18n="job2_desc">إدارة وتوزيع شحنات البضائع اليومية، ربط الحمولة بإحكام، وتحقيق نسبة التزام 100% في مواعيد التسليم.</p>
+                </div>
+                <div class="milestone-badge">Commercial Fleet</div>
+            </div>
+
+            <div class="milestone-row">
+                <div class="milestone-year">1 YEAR</div>
+                <div class="milestone-content">
+                    <h4 data-i18n="job3_title">مراقب شحن ومسؤول مستودع (Magasin Pointeur) — INBS</h4>
+                    <p data-i18n="job3_desc">مراقبة المخزون، تنظيم حركة دخول وخروج الشاحنات، والتنسيق بين فرق العمليات لرفع سرعة التحميل والتفريغ.</p>
+                </div>
+                <div class="milestone-badge">Logistics Ops</div>
+            </div>
+        </div>
+
+        <!-- Studio Conversion CTA -->
+        <div class="studio-cta" id="contact">
+            <span class="section-tag" style="color: var(--accent); margin-bottom: 15px;" data-i18n="cta_tag">هل تبحث عن سائق محترف لأسطولك؟</span>
+            <h2 data-i18n="cta_h2">جاهز لتولي مهام النقل فوراً.</h2>
+            <p data-i18n="cta_p">سواء كنت بحاجة لسائق شاحنات ثقيلة لمشاريع كبرى، نقل دولي، أو توزيع تجاري، أنا جاهز للنقاش والانطلاق فوراً.</p>
+
+            <div class="cta-btns">
+                <a href="https://wa.me/212659876230" target="_blank" class="btn-primary-studio">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span data-i18n="btn_wa">تواصل عبر واتساب مباشرة</span>
+                </a>
+                <a href="mailto:yassineoubaa@hotmail.com" class="btn-outline-studio">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>yassineoubaa@hotmail.com</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Studio Minimal Footer -->
     <footer>
-        <p>&copy; 2024 Yassine Oubaali | Ready for the road ahead.</p>
+        <div class="container">
+            <div class="footer-watermark">OUBAALI</div>
+            <div class="footer-bottom">
+                <div>Yassine Oubaali — Draa-Tafilalet, Morocco 🇲🇦</div>
+                <div>A • B • C • EC Certified Commercial & Heavy Duty Driver</div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Translations & Interactions Engine -->
+    <script>
+        const i18n = {
+            ar: {
+                nav_cta: "حجز سائق / توظيف",
+                hero_status: "متاح للنقل الثقيل واللوجستيك الدولي والمحلي",
+                hero_h1_part1: "قيادة احترافية للأوزان الثقيلة.",
+                hero_h1_part2: "دقة مطلقة في الميدان.",
+                hero_desc: "أنا ياسين أوباعلي، سائق شاحنات ثقيلة متعددة المحاور (8x4) ومركبات تجارية معتمد برخص (A, B, C, EC). أدمج بين مهارة التحكم والقيادة الآمنة وبين إدارة المستودعات واللوجستيك لضمان وصول الشحنات بأعلى معايير الانضباط والسلامة.",
+                btn_work: "ابدأ التعاقد الميداني",
+                tag_capabilities: "القدرات والخدمات الميدانية",
+                title_capabilities: "كفاءة تشغيلية تغطي كافة مراحل النقل",
+                bento1_title: "قيادة الشاحنات الثقيلة متعددة المحاور (8x4)",
+                bento1_desc: "خبرة في قيادة مركبات الأوزان الضخمة في التضاريس الصعبة والمسالك الوعرة مع الالتزام الصارم بحدود الحمولات وتوزيع الوزن وحماية الشحنة.",
+                bento2_title: "إدارة المستودعات والتوجيه (Pointeur)",
+                bento2_desc: "خبرة عام كامل في شركة INBS في ضبط وتوثيق الشحنات الواردة والصادرة بدقة 100% والتنسيق مع أطقم الشحن والتفريغ.",
+                bento3_title: "التوزيع التجاري والنقل الخفيف",
+                bento3_desc: "سنتان من العمل الميداني في النقل التجاري السريع، تخطيط المسارات بدقة، وضمان التسليم في الوقت المحدد دون تأخير.",
+                bento4_title: "الصيانة الوقائية والفحص الميكانيكي المستمر",
+                bento4_desc: "تنفيذ بروتوكولات الفحص الشامل قبل وبعد الرحلة للمحركات، الإطارات، وأنظمة الفرامل لتفادي أي عطل مفاجئ أثناء نقل الحمولات الحساسة.",
+                tag_licenses: "الاعتمادات والرخص",
+                title_licenses: "رخص قيادة معتمدة ومؤهلة لكافة المركبات",
+                lic_ec_title: "مركبات مفصلية ومقطورات",
+                lic_ec_desc: "شاحنات النقل الثقيل العابرة للمدن والدول مع المقطورات الضخمة.",
+                lic_c_title: "شاحنات الوزن الثقيل",
+                lic_c_desc: "الشاحنات الكبيرة المنفردة، شاحنات البناء والأشغال متعددة المحاور.",
+                lic_b_title: "المركبات التجارية الخفيفة",
+                lic_b_desc: "عربات التوزيع، الشاحنات الخفيفة والبيك أب (Pickup).",
+                lic_a_title: "دراجات نارية",
+                lic_a_desc: "تحكم ومرونة عالية في كافة وسائل التنقل الميدانية.",
+                tag_timeline: "المسار الميداني",
+                title_timeline: "محطات الخبرة والإنجازات",
+                job1_title: "سائق شاحنات ثقيلة 8x4 (سائق مهني مستقل)",
+                job1_desc: "نقل الحمولات الاستثنائية والثقيلة عبر خطوط لوجستية معقدة، فحص ميكانيكي دقيق للمركبة، والالتزام بمعايير السلامة.",
+                job2_title: "سائق مركبات تجارية (Pickup) — قطاع تجاري خاص",
+                job2_desc: "إدارة وتوزيع شحنات البضائع اليومية، ربط الحمولة بإحكام، وتحقيق نسبة التزام 100% في مواعيد التسليم.",
+                job3_title: "مراقب شحن ومسؤول مستودع (Magasin Pointeur) — INBS",
+                job3_desc: "مراقبة المخزون، تنظيم حركة دخول وخروج الشاحنات، والتنسيق بين فرق العمليات لرفع سرعة التحميل والتفريغ.",
+                cta_tag: "هل تبحث عن سائق محترف لأسطولك؟",
+                cta_h2: "جاهز لتولي مهام النقل فوراً.",
+                cta_p: "سواء كنت بحاجة لسائق شاحنات ثقيلة لمشاريع كبرى، نقل دولي، أو توزيع تجاري، أنا جاهز للنقاش والانطلاق فوراً.",
+                btn_wa: "تواصل عبر واتساب مباشرة"
+            },
+            en: {
+                nav_cta: "Dispatch / Hire Driver",
+                hero_status: "Available for Heavy Haulage & Global Logistics",
+                hero_h1_part1: "Heavy Haulage Precision.",
+                hero_h1_part2: "Commanding Every Road.",
+                hero_desc: "I am Yassine Oubaali, a professional driver certified across categories A, B, C, and EC, specializing in 8x4 multi-axle heavy trucks and commercial distribution. I combine rigorous driving safety with warehouse and dispatch expertise.",
+                btn_work: "Initiate Dispatch",
+                tag_capabilities: "Core Capabilities",
+                title_capabilities: "Operational Excellence Across Every Logistics Stage",
+                bento1_title: "8x4 Multi-Axle Heavy Haulage",
+                bento1_desc: "Expert operation of high-tonnage multi-axle trucks across challenging terrains, guaranteeing balanced axle load limits, freight security, and zero downtime.",
+                bento2_title: "Warehouse Dispatch Supervision",
+                bento2_desc: "1 year at INBS maintaining 100% inventory accuracy, tracking incoming/outgoing cargo, and coordinating seamless turnaround for logistics crews.",
+                bento3_title: "Commercial Urban Distribution",
+                bento3_desc: "2 years executing daily commercial distribution, proactive GPS route optimization, and rigorous punctuality across all delivery schedules.",
+                bento4_title: "Preventative Vehicle Diagnostics",
+                bento4_desc: "Meticulous pre-trip and post-trip mechanical inspections covering pneumatic brakes, drivetrain integrity, and fluids to eliminate mechanical hazards.",
+                tag_licenses: "Certifications",
+                title_licenses: "Fully Certified Commercial Driving Categories",
+                lic_ec_title: "Articulated & Semi-Trailers",
+                lic_ec_desc: "Long-haul interstate and cross-border heavy articulated vehicles.",
+                lic_c_title: "Rigid Heavy Duty Trucks",
+                lic_c_desc: "Rigid heavy freight carriers, construction tippers & 8x4 multi-axles.",
+                lic_b_title: "Light Commercial Vehicles",
+                lic_b_desc: "Urban distribution pickups, commercial vans and service fleet.",
+                lic_a_title: "Motorcycles",
+                lic_a_desc: "Agile mobility and rapid field dispatch navigation.",
+                tag_timeline: "Field Milestones",
+                title_timeline: "Proven Career Track Record",
+                job1_title: "Heavy Duty Truck Driver (8x4) — Independent",
+                job1_desc: "Transported heavy freight on complex corridors with zero safety infractions and rigorous maintenance checks.",
+                job2_title: "Commercial Vehicle Driver — Private Business",
+                job2_desc: "Spearheaded reliable delivery operations, fast route planning, and total load containment.",
+                job3_title: "Warehouse Dispatch Checker — INBS Logistics",
+                job3_desc: "Supervised freight flow, verified bills of lading, and accelerated bay loading operations.",
+                cta_tag: "Looking for an elite driver for your fleet?",
+                cta_h2: "Ready to command your transport operations.",
+                cta_p: "Whether for heavy civil engineering projects, long-haul interstate freights, or rapid fleet distribution, let's connect.",
+                btn_wa: "Chat Directly on WhatsApp"
+            },
+            es: {
+                nav_cta: "Contratar Conductor",
+                hero_status: "Disponible para Transporte Pesado y Logística",
+                hero_h1_part1: "Precisión en Cargas Pesadas.",
+                hero_h1_part2: "Control Total en Ruta.",
+                hero_desc: "Soy Yassine Oubaali, conductor profesional certificado en las categorías A, B, C y EC, especializado en camiones pesados 8x4 y distribución comercial. Combino seguridad estricta al volante con gestión logística de almacén.",
+                btn_work: "Iniciar Colaboración",
+                tag_capabilities: "Capacidades y Servicios",
+                title_capabilities: "Excelencia Operativa en Todas las Etapas del Transporte",
+                bento1_title: "Transporte Pesado Multieje 8x4",
+                bento1_desc: "Dominio de camiones de gran tonelaje en rutas complejas, garantizando distribución de carga óptima y máxima seguridad vial.",
+                bento2_title: "Control y Expedición en Almacén",
+                bento2_desc: "1 año en INBS asegurando 100% de precisión en inventarios y supervisando la carga y descarga ágil de mercancías.",
+                bento3_title: "Distribución Comercial Rápida",
+                bento3_desc: "2 años al mando de vehículos comerciales ligeros, planificando rutas eficientes y entregas puntuales garantizadas.",
+                bento4_title: "Mantenimiento Preventivo Riguroso",
+                bento4_desc: "Inspecciones técnicas antes y después de cada trayecto para asegurar el rendimiento continuo del motor y los sistemas de frenado.",
+                tag_licenses: "Permisos y Licencias",
+                title_licenses: "Permisos de Conducción Profesionales Homologados",
+                lic_ec_title: "Vehículos Articulados y Tráileres",
+                lic_ec_desc: "Transporte pesado de larga distancia y rutas transfronterizas.",
+                lic_c_title: "Camiones Rígidos Pesados",
+                lic_c_desc: "Camiones de gran tonelaje, obras y volquetes multieje 8x4.",
+                lic_b_title: "Vehículos Comerciales Ligeros",
+                lic_b_desc: "Furgonetas de reparto, camionetas y distribución urbana.",
+                lic_a_title: "Motocicletas",
+                lic_a_desc: "Máxima agilidad de desplazamiento y control vehicular.",
+                tag_timeline: "Trayectoria",
+                title_timeline: "Hitos y Experiencia Profesional",
+                job1_title: "Conductor Camión Pesado 8x4 — Independiente",
+                job1_desc: "Operación de camiones pesados en rutas complejas con historial de seguridad impecable.",
+                job2_title: "Conductor Comercial (Pickup) — Empresa Privada",
+                job2_desc: "Gestión autónoma de entregas diarias y sujeción estricta de la mercancía.",
+                job3_title: "Controlador de Expediciones (Pointeur) — INBS",
+                job3_desc: "Registro de flujo de existencias y coordinación operativa con transportistas.",
+                cta_tag: "¿Busca un conductor profesional para su flota?",
+                cta_h2: "Preparado para incorporarme de inmediato.",
+                cta_p: "Disponible para transporte nacional o contratos internacionales por carretera. Hablemos de su proyecto.",
+                btn_wa: "Contactar por WhatsApp"
+            },
+            it: {
+                nav_cta: "Ingaggia Autista",
+                hero_status: "Disponibile per Trasporto Pesante e Logistica",
+                hero_h1_part1: "Precisione nei Mezzi Pesanti.",
+                hero_h1_part2: "Controllo Assoluto su Strada.",
+                hero_desc: "Sono Yassine Oubaali, autista professionista con patenti A, B, C, EC specializzato nella guida di autocarri pesanti 8x4 e logistica commerciale. Unisco rigore meccanico, sicurezza stradale e gestione del magazzino.",
+                btn_work: "Avvia Spedizione",
+                tag_capabilities: "Competenze",
+                title_capabilities: "Efficienza Operativa in Tutte le Fasi del Trasporto",
+                bento1_title: "Guida Mezzi Pesanti 8x4 Multi-Asse",
+                bento1_desc: "Esperienza nella conduzione di veicoli industriali ad alto tonnellaggio su percorsi impegnativi con pieno rispetto dei carichi.",
+                bento2_title: "Supervisione Spedizioni e Magazzino",
+                bento2_desc: "1 anno presso INBS con precisione al 100% nei registri di inventario e coordinamento del carico/scarico automezzi.",
+                bento3_title: "Distribuzione Commerciale Rapida",
+                bento3_desc: "2 anni nel trasporto commerciale leggero, pianificazione rapida degli itinerari e rispetto rigoroso dei tempi.",
+                bento4_title: "Manutenzione e Ispezione Preventiva",
+                bento4_desc: "Controlli approfonditi prima e dopo ogni viaggio su freni pneumatici, pneumatici e fluidi per azzerare i guasti in viaggio.",
+                tag_licenses: "Patenti di Guida",
+                title_licenses: "Abilitazioni Professionali Certificate",
+                lic_ec_title: "Autoarticolati e Rimorchi",
+                lic_ec_desc: "Camion pesanti per tratte a lungo raggio e trasporti transfrontalieri.",
+                lic_c_title: "Autocarri Pesanti Rigidi",
+                lic_c_desc: "Mezzi d'opera, ribaltabili e veicoli industriali multi-asse 8x4.",
+                lic_b_title: "Veicoli Commerciali Leggeri",
+                lic_b_desc: "Furgoni per consegne rapide e furgonati pickup.",
+                lic_a_title: "Motoveicoli",
+                lic_a_desc: "Grande agilità negli spostamenti operativi.",
+                tag_timeline: "Tappe di Carriera",
+                title_timeline: "Esperienze e Traguardi sul Campo",
+                job1_title: "Autista Mezzi Pesanti 8x4 — Autonomo",
+                job1_desc: "Trasporto sicuro di carichi pesanti su percorsi complessi e controlli meccanici scrupolosi.",
+                job2_title: "Autista Mezzo Commerciale — Settore Privato",
+                job2_desc: "Consegne quotidiane puntuali, fissaggio del carico e manutenzione costante.",
+                job3_title: "Addetto al Controllo Merci — INBS Magazzino",
+                job3_desc: "Verifica e tracciamento spedizioni con elevata efficienza logistica.",
+                cta_tag: "Cerchi un autista qualificato per la tua flotta?",
+                cta_h2: "Pronto a partire per la prossima tratta.",
+                cta_p: "Disponibile per grandi cantieri, autotrasporto a lungo raggio o distribuzione merci.",
+                btn_wa: "Contattami su WhatsApp"
+            }
+        };
+
+        function applyTranslation(lang) {
+            const data = i18n[lang] || i18n['ar'];
+            
+            // Layout Direction
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', lang);
+            }
+
+            // Text Replacement
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (data[key]) {
+                    el.textContent = data[key];
+                }
+            });
+
+            // Update selectors
+            const selectEl = document.getElementById('navLangSelect');
+            if (selectEl) selectEl.value = lang;
+
+            localStorage.setItem('oubaali_lang', lang);
+        }
+
+        function setLangChoice(lang) {
+            applyTranslation(lang);
+            const modal = document.getElementById('entryModal');
+            modal.classList.add('hidden');
+        }
+
+        // On Load Check
+        window.addEventListener('DOMContentLoaded', () => {
+            const stored = localStorage.getItem('oubaali_lang');
+            const modal = document.getElementById('entryModal');
+
+            if (stored) {
+                modal.classList.add('hidden');
+                applyTranslation(stored);
+            } else {
+                modal.classList.remove('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
