@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassine Oubaali — Heavy Fleet & Commercial Logistics Specialist</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: CHANGA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,21 +18,21 @@
             --bg-main: #07090e;
             --bg-surface: #0e121a;
             --bg-card: #141924;
-            --accent: #f59e0b; /* Amber Heavy Industrial Gold */
+            --accent: #f59e0b;
             --accent-glow: rgba(245, 158, 11, 0.25);
             --text-main: #f8fafc;
             --text-muted: #8b9bb4;
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(245, 158, 11, 0.5);
-            --font-ar: 'Cairo', sans-serif;
-            --font-lat: 'Outfit', sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-family: 'Changa', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: var(--font-family) !important;
         }
 
         html {
@@ -42,14 +42,8 @@
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: var(--font-ar);
             overflow-x: hidden;
             line-height: 1.5;
-            letter-spacing: -0.01em;
-        }
-
-        body[dir="ltr"] {
-            font-family: var(--font-lat);
         }
 
         a {
@@ -63,7 +57,7 @@
             padding: 0 28px;
         }
 
-        /* ------------------ FLOATING NAVBAR ------------------ */
+        /* ------------------ FLOATING NAVBAR & FIXED SELECT ------------------ */
         .nav-wrapper {
             position: fixed;
             top: 24px;
@@ -77,7 +71,7 @@
             pointer-events: auto;
             max-width: 1100px;
             margin: 0 auto;
-            background: rgba(14, 18, 26, 0.75);
+            background: rgba(14, 18, 26, 0.88);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-subtle);
@@ -91,21 +85,21 @@
         }
 
         .brand-logo {
-            font-size: 1.1rem;
-            font-weight: 900;
+            font-size: 1.15rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 12px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .brand-badge {
             background: var(--accent);
             color: #000;
-            font-size: 0.7rem;
-            padding: 3px 8px;
+            font-size: 0.72rem;
+            padding: 2px 10px;
             border-radius: 20px;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
         }
 
@@ -115,22 +109,25 @@
             gap: 16px;
         }
 
+        /* إصلاح القائمة المنسدلة بحيث تكون مقروءة وواضحة دائماً في الويندوز وجميع الأجهزة */
         .lang-select-pill {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-main);
-            padding: 8px 16px;
+            background-color: #141924 !important;
+            color: #ffffff !important;
+            border: 1px solid var(--accent);
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             outline: none;
             transition: var(--transition-smooth);
         }
 
-        .lang-select-pill:hover {
-            border-color: var(--accent);
-            background: rgba(245, 158, 11, 0.1);
+        .lang-select-pill option {
+            background-color: #0e121a !important;
+            color: #ffffff !important;
+            padding: 12px 15px;
+            font-size: 0.95rem;
         }
 
         .btn-hire {
@@ -179,9 +176,9 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-subtle);
             border-radius: 100px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--accent);
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 24px;
         }
 
@@ -194,11 +191,10 @@
         }
 
         .hero-headline {
-            font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-            font-weight: 900;
-            line-height: 1.05;
+            font-size: clamp(2.6rem, 6vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.18;
             margin-bottom: 25px;
-            letter-spacing: -0.03em;
         }
 
         .hero-headline span.gradient-txt {
@@ -208,11 +204,12 @@
         }
 
         .hero-lead {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
             color: var(--text-muted);
-            max-width: 780px;
+            max-width: 820px;
             line-height: 1.7;
             margin-bottom: 40px;
+            font-weight: 300;
         }
 
         .hero-cta-group {
@@ -227,7 +224,7 @@
             color: #000;
             padding: 16px 36px;
             border-radius: 100px;
-            font-weight: 800;
+            font-weight: 700;
             font-size: 1rem;
             display: inline-flex;
             align-items: center;
@@ -246,7 +243,7 @@
             color: var(--text-main);
             padding: 16px 32px;
             border-radius: 100px;
-            font-weight: 700;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -276,11 +273,11 @@
         }
 
         .marquee-item {
-            font-size: 1.1rem;
-            font-weight: 800;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             display: flex;
             align-items: center;
             gap: 20px;
@@ -296,7 +293,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ------------------ BENTO CAPABILITIES (STUDIO GRID) ------------------ */
+        /* ------------------ BENTO CAPABILITIES ------------------ */
         .section-header {
             margin-bottom: 50px;
         }
@@ -304,17 +301,16 @@
         .section-tag {
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            font-weight: 800;
+            letter-spacing: 1.5px;
+            font-size: 0.88rem;
+            font-weight: 700;
             display: block;
             margin-bottom: 10px;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            letter-spacing: -0.02em;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
         }
 
         .bento-grid {
@@ -345,27 +341,27 @@
 
         .col-8 { grid-column: span 8; }
         .col-4 { grid-column: span 4; }
-        .col-6 { grid-column: span 6; }
 
         .card-num {
-            font-size: 1.1rem;
-            font-weight: 900;
+            font-size: 1rem;
+            font-weight: 800;
             color: var(--accent);
             margin-bottom: 15px;
-            font-family: var(--font-lat);
+            letter-spacing: 1px;
         }
 
         .bento-card h3 {
-            font-size: 1.7rem;
-            font-weight: 800;
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 15px;
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
         .bento-card p {
             color: var(--text-muted);
             font-size: 1.05rem;
             line-height: 1.7;
+            font-weight: 300;
         }
 
         .bento-icon-lg {
@@ -399,18 +395,6 @@
             position: relative;
         }
 
-        .license-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 22px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
         .license-card:hover {
             transform: translateY(-8px);
             border-color: var(--accent);
@@ -418,25 +402,25 @@
         }
 
         .license-code {
-            font-size: 3rem;
-            font-weight: 900;
+            font-size: 3.2rem;
+            font-weight: 800;
             color: var(--accent);
-            font-family: var(--font-lat);
             margin-bottom: 6px;
         }
 
         .license-title {
-            font-size: 1.1rem;
-            font-weight: 800;
+            font-size: 1.15rem;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
         .license-desc {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
+            font-weight: 300;
         }
 
-        /* ------------------ EXPERIENCE AS STUDIO MILESTONES ------------------ */
+        /* ------------------ MILESTONES / TIMELINE ------------------ */
         .milestones-wrapper {
             border-top: 1px solid var(--border-subtle);
             margin-bottom: 100px;
@@ -457,15 +441,14 @@
         }
 
         .milestone-year {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 800;
             color: var(--accent);
-            font-family: var(--font-lat);
         }
 
         .milestone-content h4 {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.45rem;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
@@ -473,6 +456,7 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             max-width: 680px;
+            font-weight: 300;
         }
 
         .milestone-badge {
@@ -482,7 +466,7 @@
             color: var(--text-muted);
         }
 
-        /* ------------------ HIGH-CONVERTING STUDIO CTA ------------------ */
+        /* ------------------ STUDIO CTA ------------------ */
         .studio-cta {
             background: linear-gradient(135deg, #1b2435 0%, #0d121b 100%);
             border: 1px solid var(--border-subtle);
@@ -495,10 +479,9 @@
         }
 
         .studio-cta h2 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            font-weight: 900;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
             margin-bottom: 20px;
-            letter-spacing: -0.02em;
         }
 
         .studio-cta p {
@@ -506,6 +489,7 @@
             font-size: 1.2rem;
             max-width: 650px;
             margin: 0 auto 35px;
+            font-weight: 300;
         }
 
         .cta-btns {
@@ -516,34 +500,57 @@
             flex-wrap: wrap;
         }
 
-        /* ------------------ FOOTER ------------------ */
+        /* ------------------ FOOTER (FIXED & POLISHED) ------------------ */
         footer {
             border-top: 1px solid var(--border-subtle);
-            padding: 60px 0 40px;
+            padding: 70px 0 40px;
+            background: #05070a;
         }
 
         .footer-watermark {
-            font-size: clamp(4rem, 12vw, 11rem);
-            font-weight: 900;
+            font-size: clamp(3.5rem, 10vw, 8.5rem);
+            font-weight: 800;
             text-align: center;
-            color: rgba(255, 255, 255, 0.03);
-            letter-spacing: 6px;
+            color: rgba(255, 255, 255, 0.04);
+            letter-spacing: 12px;
             user-select: none;
-            margin-bottom: 20px;
-            font-family: var(--font-lat);
+            margin: 0 auto 30px;
+            line-height: 1;
         }
 
-        .footer-bottom {
+        .footer-content-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .footer-location {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-            gap: 15px;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            font-weight: 600;
         }
 
-        /* ------------------ STUDIO MODAL (ON ENTRY) ------------------ */
+        .flag-morocco {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 3px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.4);
+        }
+
+        .footer-credentials {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* ------------------ ENTRY MODAL ------------------ */
         .studio-modal-backdrop {
             position: fixed;
             inset: 0;
@@ -576,7 +583,7 @@
 
         .studio-modal-box h3 {
             font-size: 1.8rem;
-            font-weight: 900;
+            font-weight: 800;
             margin-bottom: 8px;
         }
 
@@ -584,6 +591,7 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 30px;
+            font-weight: 300;
         }
 
         .modal-lang-grid {
@@ -615,65 +623,49 @@
             transform: scale(1.03);
         }
 
-        /* ------------------ RESPONSIVE BREAKPOINTS ------------------ */
         @media (max-width: 992px) {
-            .col-8, .col-4, .col-6 {
-                grid-column: span 12;
-            }
-            .milestone-row {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .milestone-badge {
-                text-align: start;
-            }
+            .col-8, .col-4 { grid-column: span 12; }
+            .milestone-row { grid-template-columns: 1fr; gap: 12px; }
+            .milestone-badge { text-align: start; }
         }
 
         @media (max-width: 600px) {
-            .navbar {
-                padding: 10px 18px;
-            }
-            .btn-hire span {
-                display: none;
-            }
-            .studio-cta {
-                padding: 50px 24px;
-            }
-            .modal-lang-grid {
-                grid-template-columns: 1fr;
-            }
+            .navbar { padding: 10px 18px; }
+            .btn-hire span { display: none; }
+            .studio-cta { padding: 50px 24px; }
+            .modal-lang-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- On-Entry Language Selection Modal -->
+    <!-- Language Selector Modal (On First Entry) -->
     <div id="entryModal" class="studio-modal-backdrop">
         <div class="studio-modal-box">
             <div style="width: 60px; height: 60px; background: rgba(245,158,11,0.15); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem;">
                 <i class="fa-solid fa-compass"></i>
             </div>
             <h2>Select Language / اختر اللغة</h2>
-            <p>Welcome to Yassine Oubaali's Heavy Haulage Showcase</p>
+            <p>Yassine Oubaali — Heavy Haulage Showcase</p>
             
             <div class="modal-lang-grid">
                 <button class="modal-lang-btn" onclick="setLangChoice('ar')">
-                    <span>🇲🇦 العربية</span>
+                    <span>العربية</span>
                 </button>
                 <button class="modal-lang-btn" onclick="setLangChoice('en')">
-                    <span>🇬🇧 English</span>
+                    <span>English</span>
                 </button>
                 <button class="modal-lang-btn" onclick="setLangChoice('es')">
-                    <span>🇪🇸 Español</span>
+                    <span>Español</span>
                 </button>
                 <button class="modal-lang-btn" onclick="setLangChoice('it')">
-                    <span>🇮🇹 Italiano</span>
+                    <span>Italiano</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Floating Studio Navbar -->
+    <!-- Floating Navbar -->
     <div class="nav-wrapper">
         <nav class="navbar">
             <div class="brand-logo">
@@ -698,7 +690,7 @@
         </nav>
     </div>
 
-    <!-- Hero Showcase Section -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-tag">
@@ -728,7 +720,7 @@
         </div>
     </section>
 
-    <!-- Infinite Studio Marquee Ticker -->
+    <!-- Marquee Ticker -->
     <div class="marquee-section">
         <div class="marquee-track">
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> 8x4 Heavy-Duty Haulage</div>
@@ -737,7 +729,7 @@
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> Warehouse Dispatch & Logistics</div>
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> Cross-Border & Long Distance Ready</div>
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> Preventative Mechanical Maintenance</div>
-            <!-- Repeat for seamless loop -->
+            <!-- Seamless clone -->
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> 8x4 Heavy-Duty Haulage</div>
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> Category EC Articulated Certified</div>
             <div class="marquee-item"><i class="fa-solid fa-circle"></i> Zero-Accident Safety Record</div>
@@ -745,19 +737,15 @@
         </div>
     </div>
 
-    <!-- Main Content Grid -->
+    <!-- Bento Capabilities Grid -->
     <main class="container">
         
-        <!-- Section Header -->
         <div class="section-header">
             <span class="section-tag" data-i18n="tag_capabilities">القدرات والخدمات</span>
             <h2 class="section-title" data-i18n="title_capabilities">كفاءة تشغيلية تغطي كافة مراحل النقل</h2>
         </div>
 
-        <!-- Bento Studio Grid -->
         <div class="bento-grid">
-            
-            <!-- Box 1 (Large) -->
             <div class="bento-card col-8">
                 <div>
                     <span class="card-num">01 / FLEET HEAVY HAULAGE</span>
@@ -765,13 +753,8 @@
                     <h3 data-i18n="bento1_title">قيادة الشاحنات الثقيلة متعددة المحاور (8x4)</h3>
                     <p data-i18n="bento1_desc">خبرة في قيادة مركبات الأوزان الضخمة في التضاريس الصعبة والمسالك الوعرة مع الالتزام الصارم بحدود الحمولات وتوزيع الوزن وحماية الشحنة.</p>
                 </div>
-                <div style="margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap;">
-                    <span style="background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">Multi-Axle Command</span>
-                    <span style="background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">Rigid Safety Protocols</span>
-                </div>
             </div>
 
-            <!-- Box 2 -->
             <div class="bento-card col-4">
                 <div>
                     <span class="card-num">02 / LOGISTICS COMMAND</span>
@@ -781,7 +764,6 @@
                 </div>
             </div>
 
-            <!-- Box 3 -->
             <div class="bento-card col-4">
                 <div>
                     <span class="card-num">03 / COMMERCIAL RAPID</span>
@@ -791,16 +773,14 @@
                 </div>
             </div>
 
-            <!-- Box 4 (Large) -->
             <div class="bento-card col-8">
                 <div>
                     <span class="card-num">04 / RIGOROUS MAINTENANCE</span>
                     <div class="bento-icon-lg"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <h3 data-i18n="bento4_title">الصيانة الوقائية والفحص الميكانيكي المستمر</h3>
-                    <p data-i18n="bento4_desc">تنفيذ بروتوكولات الفحص الشامل قبل وبعد الرحلة (Pre/Post-Trip Inspections) للمحركات، الإطارات، أنظمة الفرامل، ومستوى السوائل، لتفادي أي عطل مفاجئ أثناء نقل الحمولات الحساسة.</p>
+                    <p data-i18n="bento4_desc">تنفيذ بروتوكولات الفحص الشامل قبل وبعد الرحلة للمحركات، الإطارات، أنظمة الفرامل، ومستوى السوائل، لتفادي أي عطل مفاجئ أثناء نقل الحمولات الحساسة.</p>
                 </div>
             </div>
-
         </div>
 
         <!-- Licenses Holographic Cards -->
@@ -870,7 +850,7 @@
             </div>
         </div>
 
-        <!-- Studio Conversion CTA -->
+        <!-- Studio CTA -->
         <div class="studio-cta" id="contact">
             <span class="section-tag" style="color: var(--accent); margin-bottom: 15px;" data-i18n="cta_tag">هل تبحث عن سائق محترف لأسطولك؟</span>
             <h2 data-i18n="cta_h2">جاهز لتولي مهام النقل فوراً.</h2>
@@ -890,18 +870,27 @@
 
     </main>
 
-    <!-- Studio Minimal Footer -->
+    <!-- Fixed Footer with Embedded SVG Flag & Full i18n -->
     <footer>
         <div class="container">
             <div class="footer-watermark">OUBAALI</div>
-            <div class="footer-bottom">
-                <div>Yassine Oubaali — Draa-Tafilalet, Morocco 🇲🇦</div>
-                <div>A • B • C • EC Certified Commercial & Heavy Duty Driver</div>
+            <div class="footer-content-box">
+                <div class="footer-location">
+                    <span data-i18n="footer_name_loc">ياسين أوباعلي — درعة-تافيلالت، المغرب</span>
+                    <!-- علم المغرب SVG دقيق وعالي الجودة لا يظهر كحروف MA في ويندوز -->
+                    <svg class="flag-morocco" width="22" height="15" viewBox="0 0 900 600">
+                        <rect width="900" height="600" fill="#c1272d"/>
+                        <polygon points="450,195 464.7,240.2 512.2,240.2 473.8,268.1 488.5,313.3 450,285.4 411.5,313.3 426.2,268.1 387.8,240.2 435.3,240.2" fill="none" stroke="#006233" stroke-width="16"/>
+                    </svg>
+                </div>
+                <div class="footer-credentials" data-i18n="footer_sub">
+                    سائق مهني معتمد للشاحنات الثقيلة والمركبات التجارية (A • B • C • EC)
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Translations & Interactions Engine -->
+    <!-- Translations Engine -->
     <script>
         const i18n = {
             ar: {
@@ -942,7 +931,9 @@
                 cta_tag: "هل تبحث عن سائق محترف لأسطولك؟",
                 cta_h2: "جاهز لتولي مهام النقل فوراً.",
                 cta_p: "سواء كنت بحاجة لسائق شاحنات ثقيلة لمشاريع كبرى، نقل دولي، أو توزيع تجاري، أنا جاهز للنقاش والانطلاق فوراً.",
-                btn_wa: "تواصل عبر واتساب مباشرة"
+                btn_wa: "تواصل عبر واتساب مباشرة",
+                footer_name_loc: "ياسين أوباعلي — درعة-تافيلالت، المغرب",
+                footer_sub: "سائق مهني معتمد للشاحنات الثقيلة والمركبات التجارية (A • B • C • EC)"
             },
             en: {
                 nav_cta: "Dispatch / Hire Driver",
@@ -982,7 +973,9 @@
                 cta_tag: "Looking for an elite driver for your fleet?",
                 cta_h2: "Ready to command your transport operations.",
                 cta_p: "Whether for heavy civil engineering projects, long-haul interstate freights, or rapid fleet distribution, let's connect.",
-                btn_wa: "Chat Directly on WhatsApp"
+                btn_wa: "Chat Directly on WhatsApp",
+                footer_name_loc: "Yassine Oubaali — Draa-Tafilalet, Morocco",
+                footer_sub: "A • B • C • EC Certified Commercial & Heavy Duty Driver"
             },
             es: {
                 nav_cta: "Contratar Conductor",
@@ -1022,7 +1015,9 @@
                 cta_tag: "¿Busca un conductor profesional para su flota?",
                 cta_h2: "Preparado para incorporarme de inmediato.",
                 cta_p: "Disponible para transporte nacional o contratos internacionales por carretera. Hablemos de su proyecto.",
-                btn_wa: "Contactar por WhatsApp"
+                btn_wa: "Contactar por WhatsApp",
+                footer_name_loc: "Yassine Oubaali — Draa-Tafilalet, Marruecos",
+                footer_sub: "Conductor Profesional Certificado (A • B • C • EC)"
             },
             it: {
                 nav_cta: "Ingaggia Autista",
@@ -1062,14 +1057,15 @@
                 cta_tag: "Cerchi un autista qualificato per la tua flotta?",
                 cta_h2: "Pronto a partire per la prossima tratta.",
                 cta_p: "Disponibile per grandi cantieri, autotrasporto a lungo raggio o distribuzione merci.",
-                btn_wa: "Contattami su WhatsApp"
+                btn_wa: "Contattami su WhatsApp",
+                footer_name_loc: "Yassine Oubaali — Draa-Tafilalet, Marocco",
+                footer_sub: "Autista Professionista Certificato (A • B • C • EC)"
             }
         };
 
         function applyTranslation(lang) {
             const data = i18n[lang] || i18n['ar'];
             
-            // Layout Direction
             if (lang === 'ar') {
                 document.documentElement.setAttribute('dir', 'rtl');
                 document.documentElement.setAttribute('lang', 'ar');
@@ -1078,7 +1074,6 @@
                 document.documentElement.setAttribute('lang', lang);
             }
 
-            // Text Replacement
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (data[key]) {
@@ -1086,7 +1081,6 @@
                 }
             });
 
-            // Update selectors
             const selectEl = document.getElementById('navLangSelect');
             if (selectEl) selectEl.value = lang;
 
@@ -1099,7 +1093,6 @@
             modal.classList.add('hidden');
         }
 
-        // On Load Check
         window.addEventListener('DOMContentLoaded', () => {
             const stored = localStorage.getItem('oubaali_lang');
             const modal = document.getElementById('entryModal');
